@@ -6,7 +6,8 @@ const writeStream = fs.createWriteStream("./destination.txt");
 
 const report = new Duplex({
     write(data, encode, callback) {
-        console.log(data);
+        console.log(data.toString());
+        this.push(data.toString())
         console.log(encode);
         callback();
     },
